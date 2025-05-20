@@ -5,6 +5,8 @@ import pyautogui
 import time
 import random
 
+screenWidth, screenHeight = pyautogui.size()
+
 driver = webdriver.Chrome()
 driver.get("https://www.instagram.com/accounts/login/") 
 
@@ -35,7 +37,7 @@ for _ in range(interactions):
         time.sleep(random.uniform(2, 3))
 
         if mode == "L" or mode == "LIKE":
-            pyautogui.doubleClick(x=500, y=500)
+            pyautogui.doubleClick(x=screenWidth/3, y=screenHeight/2)
             time.sleep(random.uniform(1, 2))
 
         driver.find_element(By.TAG_NAME, "body").send_keys(Keys.ESCAPE)
